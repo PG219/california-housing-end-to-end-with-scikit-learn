@@ -45,8 +45,17 @@ def explore_correlations(df):
     corr_matrix = df.corr(numeric_only = True)
     return corr_matrix['median_house_value'].drop("median_house_value").sort_values(ascending=False)
 
-# Step 5 - add_ratio_features (not yet solved)
-# TODO: implement
+# Step 5 - add_ratio_features
+def add_ratio_features(df):
+    # TODO: Return a copy with rooms_per_house, bedrooms_ratio and people_per_house columns added.
+    df_copy = df.copy()
+    df_copy["rooms_per_house"] = df_copy["total_rooms"]/df_copy["households"]
+
+    df_copy["bedrooms_ratio"] = df_copy["total_bedrooms"]/df_copy["total_rooms"]
+    df_copy["people_per_house"] = df_copy["population"]/df_copy["households"]
+
+
+    return df_copy
 
 # Step 6 - split_features_labels (not yet solved)
 # TODO: implement
