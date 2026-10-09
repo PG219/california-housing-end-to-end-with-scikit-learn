@@ -142,8 +142,13 @@ def build_preprocessing(n_clusters=10, gamma=1.0, random_state=42):
     
     return preprocessing
 
-# Step 11 - rmse (not yet solved)
-# TODO: implement
+# Step 11 - rmse
+def rmse(y_true, y_pred):
+    # TODO: sqrt(mean((y_true - y_pred)^2)) as a float.
+    y_true, y_pred = np.asarray(y_true, dtype=float), np.asarray(y_pred, dtype = float)
+
+
+    return float(np.sqrt(np.mean((y_true-y_pred)**2)))
 
 # Step 12 - dummy_baseline_rmse (not yet solved)
 # TODO: implement
